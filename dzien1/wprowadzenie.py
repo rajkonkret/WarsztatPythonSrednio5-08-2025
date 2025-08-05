@@ -106,10 +106,10 @@ print("a: %i b: %i" % (a, b))  # a: 1 b: 2
 # walidacja typów
 # print("a: %i b: %i" % (a, "radek"))  # TypeError: %i format: a real number is required, not str
 
-noweimie = imiona # referencja, kopia adersu listy
-qimie = list(imiona) # nowe listy, nowy adres
+noweimie = imiona  # referencja, kopia adersu listy
+qimie = list(imiona)  # nowe listy, nowy adres
 pimie = imiona[:]
-lista_copy = imiona.copy() # nowa lista, kopia elementów listy
+lista_copy = imiona.copy()  # nowa lista, kopia elementów listy
 
 print(imiona)
 print(noweimie)
@@ -138,3 +138,136 @@ print(id(lista_copy))
 # 1394149470464
 # 1394151816896
 # 1394151754688
+
+# krotka, tupla
+miasto = ("Kraków", "Lublin", "Płock", "Łódź")
+print(miasto)  # ('Kraków', 'Lublin', 'Płock', 'Łódź')
+print(type(imiona))  # <class 'list'>
+print(type(miasto))  # <class 'tuple'>
+
+print(miasto.index("Łódź"))  # 3
+print(miasto.count("Kraków"))  # występuje 1 raz
+
+# del miasto[0] # TypeError: 'tuple' object doesn't support item deletion
+del miasto  # kasowanie całej krotki jest możliwe
+
+# zbior, set - nie przechowuje duplikatów
+# zbior nie posiada indeksu
+drzewa = {'jodła', "buk", "świerk", "dąb", "klon", "dąb"}
+print(drzewa)  # {'jodła', 'klon', 'dąb', 'świerk', 'buk'}
+print(type(drzewa))  # <class 'set'>
+
+drzewa.add("osika")
+print(drzewa)  # {'jodła', 'dąb', 'buk', 'klon', 'osika', 'świerk'}
+
+lista = [1, 2, 3, 4, 4, 5, 5, 6, 1, 2, 3]
+zbior = set(lista)
+print(zbior)  # {1, 2, 3, 4, 5, 6} gubimy kolejność
+
+pusty_zbior = set()
+print(pusty_zbior)  # set(), pusty zbiór
+
+# słownik - para typu klucz:wartość
+osoba = {
+    "id": 89,
+    "imie": "Tadeusz",
+    "rok urodzenia": 1976,
+    "miasto": "Łódź"
+}
+
+print(osoba)
+# {'id': 89, 'imie': 'Tadeusz', 'rok urodzenia': 1976, 'miasto': 'Łódź'}
+print(type(osoba))  # <class 'dict'>
+# print(osoba['miasto'])  # Łódź
+# print(osoba['Miasto'])  # KeyError: 'Miasto'
+print(osoba.get("miasto"))  # Łódź
+print(osoba.get("Miasto"))  # None, nie rzuca wyjątkiem
+print(osoba.get("Miasto", "default"))  # default gdy nie znajdzie klucza
+osoba['imie'] = "Radek"
+print(osoba)
+# {'id': 89, 'imie': 'Radek', 'rok urodzenia': 1976, 'miasto': 'Łódź'}
+print(osoba.keys())
+print(osoba.values())
+print(osoba.items())
+# dict_keys(['id', 'imie', 'rok urodzenia', 'miasto'])
+# dict_values([89, 'Radek', 1976, 'Łódź'])
+# dict_items([('id', 89), ('imie', 'Radek'), ('rok urodzenia', 1976), ('miasto', 'Łódź')])
+
+lista = [1, 2, 3, 4, 4, 5, 5, 6, 1, 2, 3]
+print(dict.fromkeys(lista))  # nie zmienia kolejnosci
+# {1: None, 2: None, 3: None, 4: None, 5: None, 6: None}
+print(list(dict.fromkeys(lista)))  # [1, 2, 3, 4, 5, 6]
+
+pusty_slownik = {}
+print(pusty_slownik)  # {}
+pusty_slownik = dict()
+print(pusty_slownik)  # {}
+
+# pętla
+licznik = 0
+while True:
+    licznik += 1  # licznik = licznik + 1
+    print("Komunikat!")
+    if licznik > 10:
+        break
+
+licznik = 0
+
+while licznik < 10:
+    licznik += 1
+    print("Komunikat 2")
+
+przekaski = ['hotdog', 'pizza', 'hamburger', 'frytki']
+prompt = "wybierz swoją przekąskę"
+
+# while True:
+#     choice = input(prompt)  # odczytuje dane od użytkownika
+#     if choice in przekaski:
+#         break
+#     print("Nie ma")
+
+# walrus operator, operator morsa
+# while (choice := input(prompt)) not in przekaski:
+#     if choice == "exit":
+#         break
+#     print("Nie ma")
+
+name = "Radek"
+a = len(name)
+if a > 4:
+    print("Długość większa od 4, wynosi:", a)
+
+if (a:= len(name)) > 4:
+    print("Długość większa od 4, wynosi:", a)
+# Długość większa od 4, wynosi: 5
+# Długość większa od 4, wynosi: 5
+
+odp = "Radek"
+if odp == "radek": # porównanie
+    print("Radek")
+elif odp =="Tomek":
+    print("tomek")
+else:
+    print("Nie znam Cię")
+# Nie znam Cię
+
+# od pythona 3.10 match case
+odp = input("Podaj imię")
+match odp.casefold().strip().capitalize():
+    case "Radek":
+        print("Ok")
+    case 'Tomek':
+        print("Też OK")
+    case _: # odpowiednik else
+        print("Nie znam")
+# Podaj imięradek
+# Nie znam
+# Podaj imięradek
+# Ok
+
+name1 = "GROSS"
+name2 = "groẞ"
+
+print(name1.lower() == name2.lower()) # False
+print(name1.upper() == name2.upper()) # False
+print(name1.casefold() == name2.casefold()) # True
