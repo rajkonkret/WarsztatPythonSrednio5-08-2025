@@ -1,4 +1,6 @@
 # funkcja zagnieżdżona, wewnętrzna
+# dekorator wykorzystuje funkcje wewnetrzne
+# funkcje wyższego rzędu - przyjmuja lub zwracają inne funkcje
 
 def fun1():
     print("To jest fun1")
