@@ -18,3 +18,4 @@ if __name__ == '__main__':
 # Hi, PyCharm
 # 2x shift - wyszukiwarka
 # wheel, theme
+# ctrl alt l - formatowanie kodu wg PEP8

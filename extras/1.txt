@@ -1,0 +1,2 @@
+https://kariera.comarch.pl/blog/clean-code-15-krokow-do-stworzenia-czystego-kodu/
+https://peps.python.org/pep-0008/
