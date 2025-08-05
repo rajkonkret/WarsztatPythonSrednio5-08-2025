@@ -63,3 +63,5 @@ print(f"Użycie filter() {list(filter(lambda x: x > 100, lista))}")  # Użycie f
 print(f"Użycie filter() {list(filter(lambda x: x < 200, lista))}")  # Użycie filter() [1, 2, 5, 56, 78, 90, 100]
 print(f"Użycie filter() {list(filter(lambda x: x > 5 and x < 200, lista))}")
 print(f"Użycie filter() {list(filter(lambda x: 5 < x < 200, lista))}")
+# Użycie filter() [56, 78, 90, 100]
+# Użycie filter() [56, 78, 90, 100]
