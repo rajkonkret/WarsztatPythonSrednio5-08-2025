@@ -1,0 +1,1 @@
+# zrobic dekorator, który zmienia wynik dziąlnia funkcji na duże litery
