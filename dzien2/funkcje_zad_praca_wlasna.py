@@ -21,6 +21,10 @@ def kwota(transport, nocleg, wyzywienie, wycieczki, ubezpieczenie, inne, rabat=0
     return round(suma, 2)
 
 
+# shift tab - cofnięcie tabulatora
+# funkcje_zad_praca_wlasna - gdy z importu
+# __main__ - gdy uruchammiamy z tego pliku
+print(__name__)
 if __name__ == '__main__':
     rabaty = [0.0, 0.05, 0.10, 0.15, 0.20]
 
