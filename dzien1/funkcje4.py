@@ -65,3 +65,34 @@ print(f"Użycie filter() {list(filter(lambda x: x > 5 and x < 200, lista))}")
 print(f"Użycie filter() {list(filter(lambda x: 5 < x < 200, lista))}")
 # Użycie filter() [56, 78, 90, 100]
 # Użycie filter() [56, 78, 90, 100]
+
+r0 = {'miasto': "Kielce"}
+r1 = {'miasto': "Kielce", "ZIP": "25-900"}
+
+print(r0['miasto'])
+print(r1['miasto'])
+# Kielce
+# Kielce
+
+print(r1['ZIP'])
+# print(r0['ZIP']) # KeyError: 'ZIP'
+
+d_zip = lambda row: row.setdefault("ZIP", "00-000")
+print(d_zip(r0))
+print(d_zip(r1))
+# 00-000
+# 25-900
+print(r0)
+print(r1)
+# {'miasto': 'Kielce', 'ZIP': '00-000'}
+# {'miasto': 'Kielce', 'ZIP': '25-900'}
+
+lata = [(2000, 29.7), (2001, 33.12), (2010, 32.92)]
+print(max(lata))  # (2010, 32.92)
+print(min(lata))  # (2000, 29.7)
+
+print(max(lata, key=lambda c: c[1]))  # (2001, 33.12)
+print(max(map(lambda c: (c[1], c), lata)))  # (33.12, (2001, 33.12))
+# 33.12
+print(max(map(lambda c: c[1], lata)))  # 33.12
+print(max(map(lambda c: (c[1], c[0]), lata)))  # (33.12, 2001)
