@@ -32,6 +32,7 @@ def greeting():
 
 print(greeting())  # HELLO WORLD!!!
 
+
 # kolejnosc ma znaczenie
 @bold_decorator
 @uppercase_decorator
