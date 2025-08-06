@@ -96,3 +96,29 @@ print(max(map(lambda c: (c[1], c), lata)))  # (33.12, (2001, 33.12))
 # 33.12
 print(max(map(lambda c: c[1], lata)))  # 33.12
 print(max(map(lambda c: (c[1], c[0]), lata)))  # (33.12, 2001)
+
+a = 10
+
+
+def funkcja_julia():
+    a = 15  # nowa zmienna o zasięgu lokalnym
+    print(a)
+
+
+funkcja_julia()  # 15
+print(a)  # 10
+
+
+def funkcja_julia():
+    global a
+    a = 15  # uzycie zmiennej globalnej
+    print(a)
+
+
+funkcja_julia()  # 15
+print(a)  # 15
+
+max_temp = max(map(lambda c: (c[1], c[0]), lata))
+print(max_temp)
+temp, year = max_temp
+print(temp, year) # 33.12 2001
