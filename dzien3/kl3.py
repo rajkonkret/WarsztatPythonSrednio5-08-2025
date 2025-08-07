@@ -9,7 +9,7 @@ class ContactList(list['Contact']):
 
 
 class Contact:
-    all_contacts = ContactList() # lista wspólna dla wszystkich obiektów klasy
+    all_contacts = ContactList()  # lista wspólna dla wszystkich obiektów klasy
 
     def __init__(self, name, email):
         self.name = name
@@ -31,6 +31,8 @@ class Suplier(Contact):
         print(f"{order} zamówiono od {self.name}")
 
 
+# klasa Friend, dziedziczy po Suplier
+# __repr__
 c1 = Contact("Adam", "admin@wp.pl")
 print(c1)  # Adam admin@wp.pl
 c2 = Contact("Radek", "radek@wp.pl")
