@@ -39,6 +39,9 @@ class MyFirstClass:
     def __str__(self):
         return f"{self.x, self.y}"
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.x, self.y})"
+
 
 # print(MyFirstClass.__doc__)  # wypisanie dokumentacji: Klasa w Pythonie
 # help(MyFirstClass)
@@ -67,3 +70,20 @@ print(point1)  # (0, 0)
 
 print(point2.calculate(point1))
 # 97.94896630388705
+
+point3 = MyFirstClass(47, 12)
+point4 = MyFirstClass(17, 12)
+print(point3)
+print(point4)
+# (47, 12)
+# (17, 12)
+
+lista = [point1, point2, point3, point4]
+print(lista)
+# [<__main__.MyFirstClass object at 0x00000235D9516F90>,
+# <__main__.MyFirstClass object at 0x00000235D97B8E10>,
+# <__main__.MyFirstClass object at 0x00000235D97B8F50>,
+# <__main__.MyFirstClass object at 0x00000235D9589E00>]
+# po dodaniu __repr__
+# [MyFirstClass((0, 0)), MyFirstClass((45, 87)),
+#  MyFirstClass((47, 12)), MyFirstClass((17, 12))]
