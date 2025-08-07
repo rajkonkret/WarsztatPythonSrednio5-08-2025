@@ -40,3 +40,6 @@ class CaseInsensitiveDict(dict):
 c1 = CaseInsensitiveDict()
 c1['name'] = "Radek"
 print(c1['Name'])  # Radek
+c1[1] = "tekst"
+print(c1)  # {'name': 'Radek', 1: 'tekst'}
+print(c1[1])  # tekst
