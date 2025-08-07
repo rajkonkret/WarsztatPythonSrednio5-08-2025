@@ -42,6 +42,7 @@ class Friend(Suplier):
     def __repr__(self):  # repr nadpisuje str, gdy str nie jest zdefiniowany
         return f"{self.name} {self.email}"
 
+
 c1 = Contact("Adam", "admin@wp.pl")
 print(c1)  # Adam admin@wp.pl
 c2 = Contact("Radek", "radek@wp.pl")
@@ -58,4 +59,4 @@ print(f1, f2)
 
 print(Contact.all_contacts)
 # [Adam admin@wp.pl, Radek radek@wp.pl, Tomek tomek@wp.pl, Kasia kasia@onet.pl, Kamil kamil@onet.pl]
-print(Contact.all_contacts.search("Kasia")) # [Kasia kasia@onet.pl]
+print(Contact.all_contacts.search("Kasia"))  # [Kasia kasia@onet.pl]
