@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 class ContactList(list['Contact']):
 
     def search(self, name):
@@ -39,8 +42,13 @@ class Friend(Suplier):
     Klasa dziedziczy po Suplier
     """
 
+    def __init__(self, name, email, phone="000000000"):
+        super().__init__(name, email)  # super() - musimy wywołąc obowiązkowo kontruktor klasy wyższej
+        self.phone = phone
+
     def __repr__(self):  # repr nadpisuje str, gdy str nie jest zdefiniowany
-        return f"{self.name} {self.email}"
+        # !r - teksty w cudzysłowach
+        return f"{self.name!r} {self.email!r}, +48{self.phone!r}"
 
 
 c1 = Contact("Adam", "admin@wp.pl")
@@ -60,3 +68,23 @@ print(f1, f2)
 print(Contact.all_contacts)
 # [Adam admin@wp.pl, Radek radek@wp.pl, Tomek tomek@wp.pl, Kasia kasia@onet.pl, Kamil kamil@onet.pl]
 print(Contact.all_contacts.search("Kasia"))  # [Kasia kasia@onet.pl]
+# [Kasia kasia@onet.pl, +48000000000]
+f3 = Friend("Aneta", "aneta@wp.pl", "654678098")
+print(f3)  # Aneta aneta@wp.pl, +48654678098
+print(Contact.all_contacts)
+# [Adam admin@wp.pl, Radek radek@wp.pl, Tomek tomek@wp.pl, Kasia kasia@onet.pl, +48000000000, Kamil kamil@onet.pl, +48000000000, Aneta aneta@wp.pl, +48654678098]
+
+pprint(Contact.all_contacts)
+# [Adam admin@wp.pl,
+#  Radek radek@wp.pl,
+#  Tomek tomek@wp.pl,
+#  Kasia kasia@onet.pl, +48000000000,
+#  Kamil kamil@onet.pl, +48000000000,
+#  Aneta aneta@wp.pl, +48654678098]
+
+# kolejnośc rozwiazywania nazw metod dla obiektu
+pprint(Friend.__mro__)
+# (<class '__main__.Friend'>,
+#  <class '__main__.Suplier'>,
+#  <class '__main__.Contact'>,
+#  <class 'object'>)
