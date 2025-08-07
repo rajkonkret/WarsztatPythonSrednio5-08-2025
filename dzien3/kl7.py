@@ -47,3 +47,43 @@ class Library:
                 self.dostepne_ksiazki.append(book)
                 return book
         raise Exception("Ksiązka  nie z naszej biblioteki")
+
+
+biblioteka = Library()
+while True:
+    print(f"""
+1. Dodaj ksiązkę
+2. Wypożycz ksiązkę
+3. Pokaż dostępne
+4. Pokaż wypożyczone
+5. Zwróc ksiązkę
+6. Koniec
+""")
+
+    try:
+        odp = input("Wybierz opcje")
+
+        if odp == "1":
+            author = input("Podaj autora")
+            title = input("Podaj tytuł")
+            isbn = input("podaj numer ISBN")
+            biblioteka.fun_dodaj_ksiazke(Book(title, author, isbn))
+        elif odp == "2":
+            isbn = input("podaj ISBN książki, którą chcesz wypożyczyc")
+            book = biblioteka.fun_wypozycz_ksiazke(isbn)
+            print(f"Ksiązka została wypożyczona: {book}")
+        elif odp == "3":
+            print(f"Dostępne ksiązki: {biblioteka.fun_ksiazki_do_wypozyczenia()}")
+        elif odp == "4":
+            print(f"Wypożyczone ksiązki: {biblioteka.fun_wypozyczone_ksiazki()}")
+        elif odp == "5":
+            isbn = input("Podaj ISBN ksiązki, którą chcesz zwrócić")
+            book = biblioteka.fun_zwroc_ksiazke(isbn)
+            if book:
+                print("ksiązka została zwrócona")
+        elif odp == "6":
+            break
+        else:
+            print("Błędny wybór")
+    except Exception as e:
+        print("Bład:", e)
