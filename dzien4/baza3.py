@@ -39,3 +39,4 @@ print(persons)
 
 for p in persons:
     print(p.name)
+# przerwa 13:30
