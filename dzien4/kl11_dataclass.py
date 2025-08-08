@@ -34,27 +34,28 @@ class Person:
     def greets(self):
         print("my name is:", self.first_name)
 
+if __name__ == '__main__':
 
-p2 = Person("Jan", "Kowalski", 1)
-print(p2)  # Person(first_name='Jan', last_name='Kowalski', id=1)
-p3 = Person("Maciej", "Arbuz", 2)
-print(p3)  # Person(first_name='Maciej', last_name='Arbuz', id=2)
+    p2 = Person("Jan", "Kowalski", 1)
+    print(p2)  # Person(first_name='Jan', last_name='Kowalski', id=1)
+    p3 = Person("Maciej", "Arbuz", 2)
+    print(p3)  # Person(first_name='Maciej', last_name='Arbuz', id=2)
 
-people = [p2, p3]
-# zapisac to do pliku
+    people = [p2, p3]
+    # zapisac to do pliku
 
-# pickle seriaizacja i deserializacja
-# with - contex manager, ułatwiaja prace z zasobami
-# ========= ===============================================================
-#     Character Meaning
-#     --------- ---------------------------------------------------------------
-#     'r'       open for reading (default)
-#     'w'       open for writing, truncating the file first
-#     'x'       create a new file and open it for writing
-#     'a'       open for writing, appending to the end of the file if it exists
-#     'b'       binary mode
-#     't'       text mode (default)
-#     '+'       open a disk file for updating (reading and writing)
-#     ========= ===============================================================
-with open('dane.pckl', "wb") as f:
-    pickle.dump(people, f)
+    # pickle seriaizacja i deserializacja
+    # with - contex manager, ułatwiaja prace z zasobami
+    # ========= ===============================================================
+    #     Character Meaning
+    #     --------- ---------------------------------------------------------------
+    #     'r'       open for reading (default)
+    #     'w'       open for writing, truncating the file first
+    #     'x'       create a new file and open it for writing
+    #     'a'       open for writing, appending to the end of the file if it exists
+    #     'b'       binary mode
+    #     't'       text mode (default)
+    #     '+'       open a disk file for updating (reading and writing)
+    #     ========= ===============================================================
+    with open('dane.pckl', "wb") as f:
+        pickle.dump(people, f)
