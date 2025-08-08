@@ -19,5 +19,5 @@ print("13" + "23")  # konkatenacja 1323
 print(13 + 23)  # 36
 print(12 * "_")  # ____________
 # silne typowanie - nie zmienia typów samodzielnie
-print(45 + "89")  # TypeError: unsupported operand type(s) for +: 'int' and 'str'
-print("89" + 45)
+# print(45 + "89")  # TypeError: unsupported operand type(s) for +: 'int' and 'str'
+# print("89" + 45)
