@@ -1,4 +1,7 @@
+from typing import List
+
 import requests
+from pydantic import BaseModel
 
 # pip install requests
 
@@ -25,3 +28,34 @@ for i in response_data:
 # number
 # message
 print(response_data['people'])  # dostajemy listę osób
+
+
+# pydatic waliduje typy danych
+class Astronaut(BaseModel):
+    name: str
+    craft: str
+
+
+class AstroData(BaseModel):
+    message: str
+    people: List[Astronaut]
+    number: int
+
+
+data = AstroData(**response.json())
+print(data)
+
+for astronaut in data.people:
+    print(f'Name: {astronaut.name}')
+# Name: Oleg Kononenko
+# Name: Nikolai Chub
+# Name: Tracy Caldwell Dyson
+# Name: Matthew Dominick
+# Name: Michael Barratt
+# Name: Jeanette Epps
+# Name: Alexander Grebenkin
+# Name: Butch Wilmore
+# Name: Sunita Williams
+# Name: Li Guangsu
+# Name: Li Cong
+# Name: Ye Guangfu
