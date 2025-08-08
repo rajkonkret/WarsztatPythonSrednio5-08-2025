@@ -125,3 +125,13 @@ https://www.hackerrank.com/domains/python
 https://pl.altapps.net/soft/hackerrank-com
 
 https://www.dlatesterow.pl/metody-http/
+
+pip freeze > requirements.txt
+pip  install -r .\requirements.txt
+
+# exe
+pip install pyinstaller
+pyinstaller --onefile --noconsole .\okno1.py
+
+pip install nuitka
+nuitka --standalone --onefile --windows-disable-console .\okno1.py
