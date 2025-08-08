@@ -57,5 +57,6 @@ if __name__ == '__main__':
     #     't'       text mode (default)
     #     '+'       open a disk file for updating (reading and writing)
     #     ========= ===============================================================
+    # pickle wymaga binarnego zapisu
     with open('dane.pckl', "wb") as f:
         pickle.dump(people, f)
