@@ -123,3 +123,5 @@ https://peps.python.org/pep-0008/
 https://www.w3schools.com/python/default.asp
 https://www.hackerrank.com/domains/python
 https://pl.altapps.net/soft/hackerrank-com
+
+https://www.dlatesterow.pl/metody-http/
