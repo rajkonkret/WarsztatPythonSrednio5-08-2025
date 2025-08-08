@@ -16,6 +16,26 @@ class Person(Base):
     name = Column(String)
     age = Column(String)
 
+    def __repr__(self):
+        return f'{self.name}'
+
 
 # tworzenie tabel
 Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+sesion = Session()
+
+person = Person(name="Radek", age="23")
+sesion.add(person)  # INSERT INTO person (name, age) VALUES (?, ?)
+sesion.commit()
+
+# SELECT person.id AS person_id, person.name AS person_name, person.age AS person_age
+# FROM person
+persons = sesion.query(Person).all()
+print(persons)
+# [<__main__.Person object at 0x00000235A721D590>, <__main__.Person object at 0x00000235A7182A50>]
+# [Radek, Radek, Radek, Radek] dla __repr__
+
+for p in persons:
+    print(p.name)
